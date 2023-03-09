@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){var e=new ScrollMagic.Controller,o=$(".scroll--designosource").height(),r=-1*$(".scroll__row").width(),l=(new TimelineMax).to(".scroll__row",1,{x:r},0);new ScrollMagic.Scene({triggerElement:".scroll--designosource",duration:o,offset:o/2}).setPin(".scroll--designosource").setTween(l).addTo(e)});

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pip {
+            background-image: url("picture_in_picture_alt_FILL0_wght400_GRAD0_opsz48.png");
+            border-radius: 50%;
+            background-size: cover;
+            margin: 5px;
+            position: absolute;
+            left: 5vw;
+            top: 5vw;
+            height: 5vw;
+            width: 5vw;
+            background-color: #ffffff;
+        }
+    </style>
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="../../css/iframes_content.css">
+</head>
+<body>
+    <video>
+    </video>
+</body>
+</html>

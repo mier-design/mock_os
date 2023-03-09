@@ -1,0 +1,114 @@
+:root {
+    --elem: #005b99;
+}
+body {
+    background-color: #252526;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: fixed;
+    top: 0px;
+}
+.menu.top {
+    background-color: #323233;
+    height: 38px;
+    width: 100%;
+}
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.menu.left {
+    width: 60px;
+    height: 100%;
+    background-color: #333333;
+}
+.files.left {
+    background-color: #252526;
+    min-width: 10%;
+    width: fit-content;
+    height: 100%;
+    resize: both;
+    position: relative;
+    max-width: calc(100% - 60px - 10%);
+}
+.editor {
+    min-width: 10%;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #1e1e1e;
+    padding-bottom: 20vh;
+    -webkit-user-modify: read-write;
+    -moz-user-modify: read-write;
+    user-modify: read-write;
+}
+code {
+    counter-reset: section;/*somehow it makes the 2nd line go 2 instead of 1*/
+    padding-left: 20px;
+    overflow: auto;
+    cursor: text;
+    color: #9e9e9e;
+}
+code div {
+    color: #faffb8;
+}
+/* code::before {
+    /* to always show 1, bcs you need something to type
+    counter-increment: section;
+    content: counter(section);
+    margin-right: 20px;
+    display: inline-block;
+    width: 38px;
+    border-right: 0.5px solid #9e9e9e;
+} */
+code div::before {
+    counter-increment: section; /* Increment the value of section counter by 1 */
+    content: counter(section); /* Display counter value in default style (decimal) */
+    margin-right: 20px;
+    display: inline-block;
+    width: 38px;
+    color: #9e9e9e;
+    border-right: 0.5px solid #9e9e9e;
+}
+code div :focus, code div :active, code div:hover, code .active{
+    outline: 1px solid #fff;
+    position: relative;
+}
+.resizer {
+    /* All resizers are positioned absolutely inside the element */
+    position: absolute;
+}
+[contenteditable], .editor {
+    outline: 0px solid transparent;
+}
+/* Placed at the right side */
+.resizer-r {
+    cursor: col-resize;
+    height: 100%;
+    right: 0;
+    top: 0;
+    width: 5px;
+}
+code ::selection {
+    /* color: #fff; */
+    background: #04395e;
+}
+vars {
+    color: #2276b1;
+}
+others {
+    color: #d096ff;
+}
+comment, comment * {
+    color: rgb(43, 110, 43);
+}
+numbers {
+    color: greenyellow;
+}
+* {
+    white-space: nowrap;
+}

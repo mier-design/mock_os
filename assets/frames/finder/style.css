@@ -1,0 +1,100 @@
+body {
+    background-color: transparent;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: "San Francisco";
+    font-weight: 400;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #212121;
+}
+
+.locations {
+    padding-left: 10px;
+    width: 25%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.files .group p {
+    position: initial;
+    width: 300px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    min-height: 50px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.files .group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.files * {
+    width: auto;
+    max-width: 50%;
+    max-height: 25vh;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    padding: 0;
+}
+
+.files {
+    overflow: auto;
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.files .image {
+    background-repeat: initial;
+    -webkit-box-shadow: 0px 0px 7px 3px rgba(33, 33, 33, 1);
+    -moz-box-shadow: 0px 0px 7px 3px rgba(33, 33, 33, 1);
+    box-shadow: 0px 0px 7px 3px rgba(33, 33, 33, 1);
+    background-color: #ffffff;
+    opacity: 0.6;
+    background-image: repeating-linear-gradient(45deg, #555555 25%, transparent 25%, transparent 75%, #555555 75%, #555555), repeating-linear-gradient(45deg, #555555 25%, #ffffff 25%, #ffffff 75%, #555555 75%, #555555);
+    background-position: 0 0, 4px 4px;
+    background-size: 8px 8px;
+}
+.device {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.devices::before {
+    content: "devices";
+}
+
+.disks::before {
+    content: "disks";
+}
+
+.bluetooth::before {
+    content: "bluetooth devices";
+}
+
+svg {
+    margin: 5%;
+}

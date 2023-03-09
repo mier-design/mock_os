@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./cursors.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <script src="./script_beforeload.js"></script>
+  <link rel="stylesheet" class="specialstyle" href="#">
+  <script defer src="./script.js"></script>
+
+<body id="body" class="body">
+  <video class="videobg" autoplay loop muted poster="#">
+  </video>
+  <div class="loader">
+    <img src="./assets/images/cripple_white.svg" class="apple-logo" alt="apple logo while loading">
+    <div>
+      <div id="pc_loader" class="pc_loader"></div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <div class="left">
+      <img src="./assets/images/cripple_white.svg" class="apple-logo" alt="apple logo">
+      <div class="dropdown">
+        <label id="app_name" class="menus">Finder</label>
+        <div class="name">Finder</div>
+      </div>
+      <div class="dropdown">
+        <input type="checkbox" id="file">
+        <label for="file" class="menus">File</label>
+        <div class="name">
+          <span class="disabled">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+              <path
+                d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+              <path
+                d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+            </svg>
+            <span>New File</span>
+          </span>
+          <span class="disabled">Select Multiple</span>
+          <span class="disabled">Copy</span>
+          <span class="disabled">Paste</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <label class="menus disabled">Edit</label>
+        <div class="name">Finder</div>
+      </div>
+      <div class="dropdown">
+        <input type="checkbox" id="view">
+        <label for="view" class="menus">View</label>
+        <div class="name">
+          <span onclick="invert('body')">Invert</span>
+          <span class="contrast" data-filter="toggle" onclick="filter('contrast', 150, 'toggle')">Toggle Contrast</span>
+          <span class="brightness disabled" data-filter="remove" onclick="filter('brightness', 90, 'remove')">Brighten
+            screen</span>
+          <span class="brightness" data-filter="add" onclick="filter('brightness', 90, 'add')">Dim screen</span>
+          <span class="saturate" data-filter="saturate" onclick="filter('saturate', 150, 'toggle')">saturate</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <input type="checkbox" id="credits">
+        <label for="credits" class="menus">Credits</label>
+        <div class="name">
+          <span><a target="_blank"
+              href="https://unsplash.com/@lucamicheli?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"><b>background
+                image</b> by <b>Luca Micheli</b> on unsplash</a></span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <input type="checkbox" id="windowsettings">
+        <label for="windowsettings" class="menus">window</label>
+        <div class="name">
+          <form method="post" enctype="multipart/form-data">
+            <label for="fileupload">Change background</label>
+            <input id="fileupload" type="file" name="files[]" multiple>
+          </form>
+
+        </div>
+      </div>
+      <div class="dropdown">
+        <label id="helpdropdown" class="menus disabled">Help</label>
+        <div class="name">Finder</div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="menu-ico">
+        <img src="./assets/images/76187-sound-information-united-business-states-address-email.png"
+          alt="sound information" class="vol">
+      </div>
+      <div class="menu-ico" id="battery">
+        <i class="fas fa-battery-empty"></i>
+      </div>
+      <div id="wifi" class="menu-ico">
+        <i class="bi bi-wifi"></i>
+      </div>
+      <div class="menu-ico">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="menu-ico">
+        <img src="./assets/images/control-center-icon.png" alt="control center" class="control-center">
+      </div>
+      <div class="menu-ico">
+        <img data-window="sir" id="sircon_top" src="./assets/images/sir.png" alt="sir icon" class="sir">
+      </div>
+
+      <label class="menutime">
+
+      </label>
+
+    </div>
+  </div>
+  <div class="dock-parent">
+  </div>
+  <div class="dock">
+    <div class="dock-container">
+      <ul>
+        <li class="li-1">
+          <div class="name">Finder</div>
+          <img class="ico sizeicon" data-window="finder" src="./assets/images/finder.png" alt="Cripple finder icon">
+        </li>
+        <li class="li-3">
+          <div class="name">launchad</div>
+          <img class="ico" data-window="launchad" src="./assets/images/launchad.png" alt="launchad icon">
+        </li>
+        <li class="li-4">
+          <div class="name">Uscod</div>
+          <img class="ico" data-window="uscod" src="./assets/images/uscod.png" alt="Uscod icon">
+        </li>
+        <li class="li-5">
+          <div class="name">NoteChad</div>
+          <img class="ico" data-window="notechad" src="./assets/images/notechad.png" alt="NoteChad icon">
+        </li>
+        <li class="li-6">
+          <div class="name">Notflix</div>
+          <img class="ico" data-window="notflix" src="./assets/images/notflix.png" alt="notflix icon">
+        </li>
+        <li class="li-7">
+          <div class="name">Pictures</div>
+          <img class="ico" data-window="photos" src="./assets/images/pictures.png" alt="Cripple pictures icon">
+        </li>
+        <li class="li-8">
+          <div class="name">Camera</div>
+          <img class="ico" data-window="camera" src="./assets/images/camera.png" alt="Cripple camera icon">
+        </li>
+        <li class="li-9">
+          <div class="name">Stats.fm</div>
+          <img class="ico" data-window="statsfm" src="./assets/images/statsfm.webp" alt="FaceTime icon">
+        </li>
+        <li class="li-9">
+          <div class="name">rocksstar launcher</div>
+          <img class="ico" data-window="rocks star" src="./assets/images/rocksstar.png" alt="rocks star launcher icon">
+        </li>
+        <li class="li-10">
+          <div class="name">cripple music</div>
+          <img data-window="cripple music" class="ico" src="./assets/images/cripple_music.png" alt="Cripple music icon">
+        </li>
+        <li class="li-11">
+          <div class="name">icould</div>
+          <img data-window="icould" src="./assets/images/icould.png" alt="Icould icon" >
+        </li>
+        <li class="li-12">
+          <div class="name">Mapple Apps</div>
+          <img data-window="mapple apps" class="ico" src="./assets/images/mapple.png" alt="Apple Maps icon">
+        </li>
+        <li class="li-12">
+          <div class="name">App Store</div>
+          <img data-window="app store" class="ico" src="./assets/images/crapstore.png" alt="App store icon">
+        </li>
+        <li class="li-14">
+          <div class="name">safeari</div>
+          <img data-window="safeari" class="ico" src="./assets/images/safeari.png" alt="safeari icon">
+        </li>
+        <li class="li-about">
+          <div class="name">IMD</div>
+          <img data-window="imd" alt="imd logo" class="ico backdropicon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDkuMTEyIiBoZWlnaHQ9IjExNS4wMTEiIHZpZXdCb3g9IjAgMCAxMDkuMTEyIDExNS4wMTEiPgogIDxnIGlkPSJHcm91cF85ODAiIGRhdGEtbmFtZT0iR3JvdXAgOTgwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5ODg5LjE0NCAtMTg1Ny42NTYpIj4KICAgIDxwYXRoIGlkPSJQYXRoXzI4MzIiIGRhdGEtbmFtZT0iUGF0aCAyODMyIiBkPSJNMzEuMjg1LDMzMC42N2MtNC4zLTMuMjE0LTguMi05LjItNS4wNjgtMTMuNTZBNTYuMTU5LDU2LjE1OSwwLDAsMSw2OS41NzcsMjk0LjFhNTYuMTU4LDU2LjE1OCwwLDAsMSw0NC41NjUsMjAuNTc1Yy44Ljk5MiwxLjYsMi4zLDEuMDY4LDMuNDU4YTMuNTE1LDMuNTE1LDAsMCwxLTEuMTksMS4yNDFjLTExLjk4Miw4LjkzMi0yNS4zMzQsMTYuNS0zOS45ODYsMTkuNDQ1cy0zMC43ODEuOC00Mi43NS04LjE1M00xMDUuNjY0LDMxNi4zYy04LjctMTAuNTMtMjIuNzQ2LTE2LjEyMi0zNi4zNzktMTUuMzQ5cy0yNi42NDMsNy42Mi0zNS43MTUsMTcuODI3YTMuMzEyLDMuMzEyLDAsMCwwLTEuMTQxLDIuNSwzLjIsMy4yLDAsMCwwLC45OTIsMS42MjVjOC45NjEsOS4zNjksMjMuMzY5LDExLjQwNywzNi4xOTMsOS40NzZBNzQuNDEzLDc0LjQxMywwLDAsMCwxMDUuNjY0LDMxNi4zWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTk5MDIuOTY1IDE1OTUuNTE4KSIgZmlsbD0iIzA2MDBmZiIvPgogICAgPHBhdGggaWQ9IlBhdGhfMjgzNiIgZGF0YS1uYW1lPSJQYXRoIDI4MzYiIGQ9Ik0yMS42NzUsMzQzLjY1MWMtMS40ODctLjc0MS0xLjk2LTIuNzQ2LTEuNDg5LTQuMzRhMTAuNzc4LDEwLjc3OCwwLDAsMSwyLjc3NS00LjA4NGwxNC4wMjktMTUuMDE0YzEuNTE0LTEuNjE4LDMuODQ5LTMuMzY1LDUuNy0yLjE0MmEzLjIzMywzLjIzMywwLDAsMSwxLDMuNjUxLDkuMDE4LDkuMDE4LDAsMCwxLTIuMjkxLDMuMzE0Yy00LjU3NSw0LjgtOS41NTgsOS4yODctMTMuMjg3LDE0Ljc3YTEzLjI4MiwxMy4yODIsMCwwLDEtMi41ODgsMy4xODFBMy43MzcsMy43MzcsMCwwLDEsMjEuNjc1LDM0My42NTFaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTkwOS4xNTQgMTYyNC4yNzMpIiBmaWxsPSIjMDYwMGZmIi8+CiAgICA8cGF0aCBpZD0iUGF0aF8yODM3IiBkYXRhLW5hbWU9IlBhdGggMjgzNyIgZD0iTTU4LjAzLDMwNy40MzJjLTEuMzEtMS42NTEuMDc1LTQuMDIsMS40MjUtNS42NGwxNC42My0xNy41NDlBOS42MzcsOS42MzcsMCwwLDEsNzcsMjgxLjU5YTMuMjg1LDMuMjg1LDAsMCwxLDMuNy4zMzVjMS42ODcsMS42NzguMTU4LDQuNDkzLTEuMzgxLDYuMzA4TDY0LjgzNCwzMDUuMzYxYTkuMzE1LDkuMzE1LDAsMCwxLTMuMDUsMi42ODFBMy4xODksMy4xODksMCwwLDEsNTguMDMsMzA3LjQzMloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC05ODYzLjQyMiAxNTc5Ljc3OCkiIGZpbGw9IiMwNjAwZmYiLz4KICAgIDxwYXRoIGlkPSJQYXRoXzI4MzkiIGRhdGEtbmFtZT0iUGF0aCAyODM5IiBkPSJNNjEuMDI4LDMyMC44NTJhNC42MjYsNC42MjYsMCwwLDEtMi0yLjgzMmMtLjE3OC0xLjg3OCwyLjA3MS0zLjIzLDMuOTM2LTIuOTIzczMuMzQ3LDEuNjYsNC43NjgsMi45YTcxLjMzNyw3MS4zMzcsMCwwLDAsOS4zMjksNi45LDExLjI3MiwxMS4yNzIsMCwwLDEsMy44NTYsMy4yMWMuOSwxLjQyOS45MTUsMy41OC0uNDQ2LDQuNTc3LTEuNjc0LDEuMjI1LTMuOTg5LjAyNC01LjY3MS0xLjE4NVE2Ny43MjgsMzI2LjQyNCw2MS4wMjgsMzIwLjg1MloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC05ODYxLjU3OCAxNjIxLjA5NCkiIGZpbGw9IiMwNjAwZmYiLz4KICAgIDxwYXRoIGlkPSJQYXRoXzI4NDAiIGRhdGEtbmFtZT0iUGF0aCAyODQwIiBkPSJNNDAuMTcyLDMwOC4wMTZjLTEuNzA3LjMtMy4xODEtMS4xMjMtNC4zNjItMi4zOTFBMTAzLDEwMywwLDAsMCwyMy43NjYsMjk0LjZhMTAuMTg3LDEwLjE4NywwLDAsMS0yLjY3My0yLjY0MSwzLjI1NCwzLjI1NCwwLDAsMS0uMDM2LTMuNTYsMy4yMzEsMy4yMzEsMCwwLDEsMy40ODctLjg1LDkuNDY1LDkuNDY1LDAsMCwxLDMuMiwyLjA0MmwxMS4wNjUsOS4zODFjMS40NzIsMS4yNDcsMy4wMTIsMi42LDMuNTgzLDQuNDM5UzQyLjA3MiwzMDcuNjg1LDQwLjE3MiwzMDguMDE2WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTk5MDguNTA1IDE1ODcuMzM3KSIgZmlsbD0iIzA2MDBmZiIvPgogICAgPHBhdGggaWQ9IlBhdGhfMjg0MSIgZGF0YS1uYW1lPSJQYXRoIDI4NDEiIGQ9Ik02NC45MDcsMzQwLjI1YTMuMzU4LDMuMzU4LDAsMCwxLTMuNTk0LS4zLDkuODc1LDkuODc1LDAsMCwxLTIuNDc1LTIuODc1bC03Ljk2LTEyLjExMWMtMS4wNTQtMS42MDctMi4xLTMuOC0uOS01LjNhMy4xNjcsMy4xNjcsMCwwLDEsMy45MTYtLjQ2Miw5LjI0LDkuMjQsMCwwLDEsMi45MTksMy4wODVsNy41MzgsMTAuOTY1YTkuODU4LDkuODU4LDAsMCwxLDEuNzY3LDMuNDkyQTMuMzYxLDMuMzYxLDAsMCwxLDY0LjkwNywzNDAuMjVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTg3My4yNTYgMTYyNS41OTgpIiBmaWxsPSIjMDYwMGZmIi8+CiAgICA8cGF0aCBpZD0iUGF0aF8yODQyIiBkYXRhLW5hbWU9IlBhdGggMjg0MiIgZD0iTTUyLjkwOSwyNzkuNzU0YzIuMDY5LjQ5NSwyLjM4NCwzLjI3LDIuMjUxLDUuMzk0bC0uOTQzLDE0Ljk4MWMtLjEyNCwxLjk1Ni0uNTg0LDQuMzYyLTIuNDY0LDQuOTE3LTEuNDk0LjQ0Mi0zLjA4NS0uNzA2LTMuNy0yLjE0YTkuNzExLDkuNzExLDAsMCwxLS4zNTctNC42MTVsMS4xLTEzLjAzOWE5LjE4Myw5LjE4MywwLDAsMSwuODc3LTMuNzkzQTMuMTMzLDMuMTMzLDAsMCwxLDUyLjkwOSwyNzkuNzU0WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTk4NzUuNTExIDE1NzcuOTYzKSIgZmlsbD0iIzA2MDBmZiIvPgogICAgPHBhdGggaWQ9IlBhdGhfMjg0MyIgZGF0YS1uYW1lPSJQYXRoIDI4NDMiIGQ9Ik0zNi43OTUsMjgwLjU1OGMxLjYwOS43NDYsMi4yLDIuNjksMi42MTcsNC40MTVsMy44MzYsMTUuODQyYy4zMDYsMS4yNjEuNTgyLDIuNy0uMTYyLDMuNzY1LTEuMDA4LDEuNDQ1LTMuMzc2LDEuMjEtNC42NS0uMDA3cy0xLjczNi0zLjAzNC0yLjE0Mi00Ljc1bC0zLjQwNy0xNC4zOWE1Ljk3LDUuOTcsMCwwLDEtLjE4Mi0zLjAyMUEzLjA5MiwzLjA5MiwwLDAsMSwzNi43OTUsMjgwLjU1OFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC05ODkzLjgzMyAxNTc4LjcyMikiIGZpbGw9IiMwNjAwZmYiLz4KICAgIDxwYXRoIGlkPSJQYXRoXzI4NDQiIGRhdGEtbmFtZT0iUGF0aCAyODQ0IiBkPSJNNDMuOTU2LDMxOS43MzFjMS45LjQ0LDIuMzI2LDIuOTE1LDIuMzYsNC44NjNsLjI2NCwxNi40MzdjLjAyOSwxLjc0OS0uMTUzLDMuODY1LTEuNzExLDQuNjU1LTEuNDI3LjcyNi0zLjI1LS4yMzgtNC4wMjQtMS42MzhhOS40NzMsOS40NzMsMCwwLDEtLjc3LTQuNjlsLjEtMTMuOTQyYTguODcsOC44NywwLDAsMSwuNjEtMy44NjVBMy4wMzQsMy4wMzQsMCwwLDEsNDMuOTU2LDMxOS43MzFaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTg4NC42ODUgMTYyNi43MzIpIiBmaWxsPSIjMDYwMGZmIi8+CiAgICA8cGF0aCBpZD0iUGF0aF8yOTA1IiBkYXRhLW5hbWU9IlBhdGggMjkwNSIgZD0iTTYyLjY5LDMwNC45ODRhMTAuMDcyLDEwLjA3MiwwLDAsMS0xLjE4OCw5LjY1MSwxMi4wNTUsMTIuMDU1LDAsMCwxLTYuNjg4LDQuMjkzQTEzLjIxNywxMy4yMTcsMCwwLDEsNDIuNTUzLDMxNi4xYy0zLjE4MS0zLjAxLTQuMzI2LTguMTUxLTIuMjcxLTEyLjAxOGExMS44MzUsMTEuODM1LDAsMCwxLDguMTMzLTUuNmM1LjU1NC0xLjE2OCwxMi4xMDYsMS4yNjEsMTQuMjc1LDYuNW0tNi41LDIuOTkyYy0uMzg4LTIuMjQtMy4yMTYtMy41MjktNS4zMTYtMi42NTdhNS4yMTksNS4yMTksMCwwLDAtMi44Myw1LjY0NSwxLjY1MSwxLjY1MSwwLDAsMCwuOTEsMS4zOTIsNi41MjIsNi41MjIsMCwwLDAsNC45NDgtLjIxM0E0LjEzOCw0LjEzOCwwLDAsMCw1Ni4xOTMsMzA3Ljk3NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC05ODg1LjY4OCAxNjAwLjUyOCkiIGZpbGw9IiMwNjAwZmYiLz4KICA8L2c+Cjwvc3ZnPgo=">
+        </li>
+        <li class="li-about">
+          <div class="name">About this device</div>
+          <img data-window="about" class="ico" src="./assets/images/about.png" alt="about device icon">
+        </li>
+        <li class="li-bin li-15">
+          <div class="name">Bin</div>
+          <img data-window="bin" class="ico" src="./assets/images/binary.png" alt="Bin icon">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu first">
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+            <path
+              d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+          </svg>
+          <span>Undo </span>
+          <span>CTRL+Z</span>
+        </button>
+      </li>
+    </ul>
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-folder-plus" viewBox="0 0 16 16">
+            <path
+              d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z" />
+            <path
+              d="M13.5 10a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V13h-1.5a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z" />
+          </svg>
+          <span>Create folder </span>
+          <span>CTRL +</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+            <path
+              d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+            <path
+              d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+          </svg>
+          <span>Create file </span>
+          <span>CTRL+C</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-textarea-resize" viewBox="0 0 16 16">
+            <path
+              d="M0 4.5A2.5 2.5 0 0 1 2.5 2h11A2.5 2.5 0 0 1 16 4.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 11.5v-7zM2.5 3A1.5 1.5 0 0 0 1 4.5v7A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 13.5 3h-11zm10.854 4.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708l3-3a.5.5 0 0 1 .708 0zm0 2.5a.5.5 0 0 1 0 .708l-.5.5a.5.5 0 0 1-.708-.708l.5-.5a.5.5 0 0 1 .708 0z" />
+          </svg>
+          <span>Select files </span>
+          <span>CTRL+</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-sliders2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5ZM12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5ZM1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8Zm9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5Zm1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z" />
+          </svg>
+          <span>Settings </span>
+          <span>CTRL+V</span>
+        </button>
+      </li>
+    </ul>
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg ></svg>
+          <span>Select All</span>
+          <span>CTRL+A</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="menu second">
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+            <path
+              d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+          </svg>
+          <span onclick="duplicate()" >Duplicate</span>
+          <span>SHIFT+D</span>
+        </button>
+      </li>
+    </ul>
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-folder-plus" viewBox="0 0 16 16">
+            <path
+              d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z" />
+            <path
+              d="M13.5 10a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V13h-1.5a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z" />
+          </svg>
+          <span>Create folder </span>
+          <span>CTRL +</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+            <path
+              d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+            <path
+              d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+          </svg>
+          <span>Create file </span>
+          <span>CTRL+C</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-textarea-resize" viewBox="0 0 16 16">
+            <path
+              d="M0 4.5A2.5 2.5 0 0 1 2.5 2h11A2.5 2.5 0 0 1 16 4.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 11.5v-7zM2.5 3A1.5 1.5 0 0 0 1 4.5v7A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 13.5 3h-11zm10.854 4.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708l3-3a.5.5 0 0 1 .708 0zm0 2.5a.5.5 0 0 1 0 .708l-.5.5a.5.5 0 0 1-.708-.708l.5-.5a.5.5 0 0 1 .708 0z" />
+          </svg>
+          <span>Select files </span>
+          <span>CTRL+</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-sliders2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5ZM12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5ZM1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8Zm9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5Zm1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z" />
+          </svg>
+          <span>Settings </span>
+          <span>CTRL+V</span>
+        </button>
+      </li>
+    </ul>
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg></svg>
+          <span>Select All</span>
+          <span>CTRL+A</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="menu third">
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+            <path
+              d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+          </svg>
+          <span onclick="backgroundinput.click()" >Change Background</span>
+          <span>CTRL+:</span>
+        </button>
+      </li>
+    </ul>
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-folder-plus" viewBox="0 0 16 16">
+            <path
+              d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z" />
+            <path
+              d="M13.5 10a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V13h-1.5a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z" />
+          </svg>
+          <span>Create folder </span>
+          <span>CTRL +</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+            <path
+              d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+            <path
+              d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+          </svg>
+          <span>Create file </span>
+          <span>CTRL+C</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-textarea-resize" viewBox="0 0 16 16">
+            <path
+              d="M0 4.5A2.5 2.5 0 0 1 2.5 2h11A2.5 2.5 0 0 1 16 4.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 11.5v-7zM2.5 3A1.5 1.5 0 0 0 1 4.5v7A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 13.5 3h-11zm10.854 4.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708l3-3a.5.5 0 0 1 .708 0zm0 2.5a.5.5 0 0 1 0 .708l-.5.5a.5.5 0 0 1-.708-.708l.5-.5a.5.5 0 0 1 .708 0z" />
+          </svg>
+          <span>Select files </span>
+          <span>CTRL+</span>
+        </button>
+      </li>
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-sliders2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5ZM12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5ZM1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8Zm9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5Zm1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z" />
+          </svg>
+          <span>Settings </span>
+          <span>CTRL+V</span>
+        </button>
+      </li>
+    </ul>
+    <ul  class="menu-list">
+      <li  class="menu-item">
+        <button  class="menu-button">
+          <svg></svg>
+          <span>Select All</span>
+          <span>CTRL+A</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div onmousedown="setactive(this);dragElement(this);" data-window="bin" id="window" class="window minimize resizable">
+    <div class="top_menu active">
+      <div class="actions">
+        <div onclick="closetab(this, 3)" class="dot red close_tab"></div>
+        <div class="dot yellow minify_tab"></div>
+        <div class="dot green fullscreen_tab"></div>
+      </div>
+      <div class="title">
+      </div>
+    </div>
+    <iframe src="#" class="tab content">
+    </iframe>
+  </div>
+</body>
+
+</html>

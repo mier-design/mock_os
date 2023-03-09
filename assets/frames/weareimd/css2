@@ -1,0 +1,7 @@
+﻿@font-face {
+  font-family: 'Reenie Beanie';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/reeniebeanie/v16/z7NSdR76eDkaJKZJFkkjuvWxbP0.ttf) format('truetype');
+}

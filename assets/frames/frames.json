@@ -1,0 +1,107 @@
+{
+    "imd": {
+        "source": "./assets/frames/weareimd/index.html",
+        "logosrc": "#",
+        "url": "https://weareimd.be/",
+        "title":"Weareimd",
+        "desc": "We Make Cool Stuff",
+        "specialsize": false
+    },
+    "safeari": {
+        "source": "https://bing.com",
+        "logosrc": "./assets/images/safeari.png",
+        "url": "https://bing.com",
+        "title":"safeari",
+        "desc": "BiNg SeArCh BcS iT iS gOoD",
+        "specialsize": false
+    },
+    "icould": {
+        "source": "./assets/frames/icould/login.html",
+        "logosrc": "./assets/images/icould.png",
+        "url": "https://www.icloud.com/",
+        "title":"Icould",
+        "desc": "Could i?",
+        "specialsize": false
+    },
+    "mapple apps": {
+        "source": "https://www.google.com/maps/embed/v1/view?key=AIzaSyA1Vf45Wr0eyIUAhNrqjezMEW82fhBRDIA&center=43.723205,10.39469&zoom=18&maptype=satellite",
+        "logosrc": "./assets/images/mapple.png",
+        "url": "https://www.google.com/maps/embed/v1/view?key=AIzaSyA1Vf45Wr0eyIUAhNrqjezMEW82fhBRDIA&center=43.723205,10.39469&zoom=18&maptype=satellite",
+        "title":"Mapple Apps",
+        "desc": "Better ways ahead with google maps.",
+        "specialsize": false
+    },
+    "cripple music": {
+        "source": "./assets/frames/cripple_music/cripple_music.html",
+        "logosrc": "./assets/images/cripple_music.png",
+        "url": "https://www.apple.com/benl/apple-music/",
+        "title": "Cripple Music",
+        "desc": "Lose yourself in 50 million songs",
+        "specialsize": false
+    },
+    "statsfm": {
+        "source": "https://stats.fm/",
+        "logosrc": "./assets/images/statsfm.png",
+        "url": "https://stats.fm/",
+        "title":"Stats.fm",
+        "desc": "Your music, your stats, your story.",
+        "specialsize": false
+    },
+    "rocks star": {
+        "source": "https://www.rockstargames.com/",
+        "logosrc": "./assets/images/rocksstar.png",
+        "url": "https://www.rockstargames.com/",
+        "title": "rocks star launcher",
+        "desc": "Killing dreams. Murdering hope. Fighting the righteous. Bullying the weak.",
+        "specialsize": false
+    },
+    "sir": {
+        "source": "./assets/sir/index.html",
+        "logosrc": "./assets/images/sir.png",
+        "url": "https://www.apple.com/siri/",
+        "title": "sir asistant",
+        "desc": "Useless here =)",
+        "specialsize": true,
+        "styleurl": "./assets/sir/parentstyle.css"
+    },
+    "notflix": {
+        "source": "./assets/frames/notflix/index.html",
+        "logosrc": "./assets/images/notflix.png",
+        "url": "https://www.netflix.com/",
+        "title": "notflix",
+        "desc": "not netflix based ~_~",
+        "specialsize": false
+    },
+    "camera": {
+        "source": "./assets/frames/camera/index.html",
+        "logosrc": "./assets/images/camera.png",
+        "url": "#",
+        "title": "Camera",
+        "desc": "I'm watching you :-)",
+        "specialsize": false
+    },
+    "finder": {
+        "source": "./assets/frames/finder/index.php",
+        "logosrc": "./assets/images/finder.png",
+        "url": "https://www.apple.com/macos/ventura/",
+        "title": "Finder",
+        "desc": "What About you find some bitches"
+    },
+    "notechad": {
+        "source": "./assets/frames/notechad/index.html",
+        "logosrc": "./assets/images/notechad.png",
+        "url": "#",
+        "title": "NoteChad",
+        "desc": "keeps note of your notes with a chad"
+    },
+    "launchad": {
+        "source": "./assets/frames/launchad/index.php",
+        "logosrc": "./assets/images/launchad.png",
+        "url": "#",
+        "title": "Launchad",
+        "desc": "All your apps in one place",
+        "specialsize": true,
+        "styleurl": "./assets/frames/launchad/parentstyle.css"
+
+    }
+}

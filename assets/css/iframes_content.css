@@ -1,0 +1,46 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "San Francisco";
+}
+body.overflow {
+  overflow-y: auto;
+}
+.overflow{
+  overflow: auto;
+  overflow-x: hidden;
+}
+*::-webkit-scrollbar {
+  background-color: #cccccc;
+  width: 8px;
+  height: 4px;
+}
+
+/* background of the scrollbar except button or resizer */
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* scrollbar itself */
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 16px;
+  border: none;
+}
+
+/* set button(top and bottom of the scrollbar) */
+*::-webkit-scrollbar-button {
+  display: none;
+}
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("../fonts/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 800;
+  src: url("../fonts/sanfranciscodisplay-bold-webfont.woff");
+}
